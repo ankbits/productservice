@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/products/v3/.*"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "productDetailsResponse.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
