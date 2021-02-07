@@ -11,6 +11,9 @@ public class CouchbaseConfig extends AbstractCouchbaseConfiguration {
     @Value("${spring.couchbase.bucket.name}")
     private String bucketName;
 
+    @Value("${spring.couchbase.user.name}")
+    private String userName;
+
     @Value("${spring.couchbase.bucket.password}")
     private String bucketPassword;
 
@@ -25,7 +28,7 @@ public class CouchbaseConfig extends AbstractCouchbaseConfiguration {
 
     @Override
     public String getUserName() {
-        return "promotions";
+        return userName;
     }
 
     @Override
