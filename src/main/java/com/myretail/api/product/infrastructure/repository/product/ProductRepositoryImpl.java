@@ -1,7 +1,7 @@
 package com.myretail.api.product.infrastructure.repository.product;
 
-import com.myretail.api.product.domain.repository.ProductRepository;
 import com.myretail.api.product.domain.entity.Product;
+import com.myretail.api.product.domain.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

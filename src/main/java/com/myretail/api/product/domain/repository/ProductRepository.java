@@ -8,5 +8,6 @@ import reactor.core.publisher.Mono;
 public interface ProductRepository {
 
     Mono<Product> findProductById(String id);
+
     Mono<Product> save(Product product);
 }
