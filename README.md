@@ -1,1 +1,1 @@
-# productservice
+# product-service
