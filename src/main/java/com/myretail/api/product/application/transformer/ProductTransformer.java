@@ -17,15 +17,28 @@ public class ProductTransformer {
     public Mono<ProductDTO> transformToDTO(Product product) {
         return Mono.just(product)
                 .flatMap(prod -> productDetailsService.getProductDetails(product.getId()))
-                .map(productDetails -> createDTO(product, productDetails));
+                .map(productDetails -> buildDTO(product, productDetails));
 
     }
 
-    private ProductDTO createDTO(Product product, ProductDetails productDetails) {
+    public Mono<Product> transformToCore(ProductDTO productDTO) {
+        return Mono.just(productDTO)
+                .map(this::buildProduct);
+    }
+
+    private ProductDTO buildDTO(Product product, ProductDetails productDetails) {
         return ProductDTO.builder()
                 .id(product.getId())
                 .currentPrice(product.getPrice())
                 .name(productDetails.getDescription())
                 .build();
     }
+
+    private Product buildProduct(ProductDTO productDTO) {
+        return Product.builder()
+                .id(productDTO.getId())
+                .price(productDTO.getCurrentPrice())
+                .build();
+    }
+
 }
